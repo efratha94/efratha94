@@ -98,11 +98,10 @@ const Tweeter = function() {
 }
 
 const tweeter = Tweeter();
-tweeter.addPosts("Hurray")
-tweeter.addPosts("It's a holiday")
-tweeter.removePost("p3")
-tweeter.addComment("p2", "hey you")
-tweeter.addComment("p4", "please let it work")
-
-tweeter.removeComment("p1", "c2")
+// tweeter.addPosts("Hurray")
+// tweeter.addPosts("It's a holiday")
+// tweeter.removePost("p3")
+// tweeter.addComment("p2", "hey you")
+// tweeter.addComment("p4", "please let it work")
+// tweeter.removeComment("p1", "c2")
 console.log(tweeter.getPosts())
