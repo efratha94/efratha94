@@ -13,7 +13,7 @@ const Tweeter = function() {
             text: "Aw man, I wanted to be first",
             id: "p2",
             comments: [
-                { id: "c4", text: "Don't wory second poster, you'll be first one day." },
+                { id: "c4", text: "Don't worry second poster, you'll be first one day." },
                 { id: "c5", text: "Yeah, believe in yourself!" },
                 { id: "c6", text: "Haha second place what a joke." }
             ]

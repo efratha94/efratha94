@@ -33,9 +33,11 @@ body{
 }
 
 #commentButton{
-    height: 3vh;
+    align-content: flex-end;
     display: inline-block;
-    grid-area: b;
+    grid-area: p;
+    width: 5wv;
+    height: 3hv;
     margin: 7px;
     padding: 10px;
     background-color: #3498db;
@@ -43,7 +45,7 @@ body{
     box-shadow: 1px 1px 5px #2c3e50;
     cursor: pointer;
     justify-content: center;
-    font-size: 2.5vw;
+    font-size: 1.5vw;
 }
 
 #posts{
