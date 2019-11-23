@@ -21,7 +21,29 @@ body{
 #input{
     grid-area: i;
     padding: 10px;
-    font-size: 15wv;
+    font-size: 10wv;
+    
+}
+
+#commentInput{
+    grid-area: i;
+    padding: 10px;
+    font-size: 10wv;
+    width: 30%;
+}
+
+#commentButton{
+    height: 3vh;
+    display: inline-block;
+    grid-area: b;
+    margin: 7px;
+    padding: 10px;
+    background-color: #3498db;
+    border: 1px solid #2980b9;
+    box-shadow: 1px 1px 5px #2c3e50;
+    cursor: pointer;
+    justify-content: center;
+    font-size: 2.5vw;
 }
 
 #posts{
@@ -56,9 +78,9 @@ body{
 }
 
 .comments{
-    margin-left: 10px;
     margin: 16px;
-    font-weight: normal
+    margin-left: 30px;
+    font-weight: normal;
 }
 
 .delete{
@@ -69,9 +91,11 @@ body{
     padding: 5px;
     border-radius: 3px;
     font-size: 0.8em;
+    margin: 2px;
 }
 
 .delete-comment{
     cursor: pointer;
     color: #e74c3c;
+    margin: 5px;
 }
