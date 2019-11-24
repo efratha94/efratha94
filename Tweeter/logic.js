@@ -32,7 +32,6 @@ const Tweeter = function() {
             if (posts[post].id == postId){
                 if (posts[post].comments.length > 0){
                 let commentSliced = posts[post].comments.slice(-1)[0] 
-                //slice returns an array with a copy of the sliced elements. can someone guess why did i use [0]?
                 let commentIdSliced = commentSliced.id.slice(1)
                 commentIdSliced++
                 posts[post]["comments"].push({id: "c"+commentIdSliced, text})
