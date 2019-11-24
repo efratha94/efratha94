@@ -1,21 +1,27 @@
 const Renderer = function() {
-        const renderPosts = function(posts){
+    const renderPosts = function(posts){
         $("#posts").empty()
         for (post in posts){
-            const postIdNewDiv = $("#posts").append(`<div class="post" data-id=${posts[post].id}></div>`)
-            const postTextNewPost =  $(`[data-id=${posts[post].id}]`).append(`<div class="post-text" data-id=${posts[post].id}>${posts[post].text}</div>`)
-            const thePostItself = $(`[data-id=${posts[post].id}]`)
+            const chosenPost = posts[post]
+            const postIdNewDiv = $("#posts").append(`<div class="post" data-id=${chosenPost.id}></div>`)
+            const postTextNewPost =  $(`[data-id=${posts[post].id}]`).append(`<div class="post-text" data-id=${chosenPost.id}>${chosenPost.text}</div>`)
+            const thePostItself = $(`[data-id=${chosenPost.id}] .post-text`)
+            
             
             for (comment in posts[post].comments){
-            const postNewComments = $(`[data-id=${posts[post].id}] .post-text`).append(`<p class="comments" data-idComment=${posts[post].comments[comment].id}>${posts[post].comments[comment].text}</p>`)
-            const theCommentId = $(`[data-idComment=${posts[post].comments[comment].id}]`)
-            // console.log(posts[post].comments[comment].id)
+                let chosenComment = posts[post].comments[comment]
+                const postNewComments = $(thePostItself).append(`<p class="comments" data-idComment=${chosenComment.id}>${chosenComment.text}</p>`)
             }
         }
+        $(".post-text").prepend("<span class='delete'>X</span>")
+        $(".comments").prepend("<span class='delete-comment'>X</span>")
+        const commentSection = $("#posts").find(".post-text").append("<div class='newComment'></div>")
+        const newComment = $("<input type='text' placeholder='Add comment' id='commentInput'></input><span id='commentButton'>Comment</span>")
+        $(".newComment").append(newComment)
+
     }
 
     return {
-        renderPosts,
+        renderPosts
     }
 }
-
