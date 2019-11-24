@@ -1,7 +1,7 @@
 const Tweeter = function() {
     const posts = [
         {
-            text: "First post!",
+            text: "First post",
             id: "p1",
             comments: [
                 { id: "c1", text: "First comment on first post!" },
