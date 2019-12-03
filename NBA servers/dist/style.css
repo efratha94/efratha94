@@ -1,0 +1,16 @@
+#players{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+}
+
+#player{
+    display: grid;
+    background-color: #fa983a;
+    color: #0c2461;
+    border: 4px groove #e58e26;
+    box-sizing: border-box;
+    justify-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+}

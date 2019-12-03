@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <input type="text" id="team-name" placeholder="Which team would you like to search?">
+    <button onclick=findMyTeam() type="submit" id="submit">Search!</button>
+
+    <div id="players"></div>
+
+    <script id="players-container-template" type="text/x-handlebars-template">
+        {{#each team}}
+        <div id="player">
+        <img src='https://nba-players.herokuapp.com/players/{{"Last Name"}}/{{"First Name"}}' />
+        <h2 class="player-name">{{"First Name"}} {{"Last Name"}}</h2>
+        <p class="player-shirt">{{"Jersey"}}</p>
+        <p class="player-pos">{{"Position"}}</p>
+        </div>
+        {{/each}}
+    </script>
+
+
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <!-- <script src="render.js"></script>
+    <script src="playerData.js"></script> -->
+    <script src="main.js"></script>
+</body>
+
+</html>
