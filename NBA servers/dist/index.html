@@ -14,6 +14,7 @@
 
     <input type="text" id="team-name" placeholder="Which team would you like to search?">
     <button onclick=findMyTeam() type="submit" id="submit">Search!</button>
+    <button onclick=buildTeam() type="submit" id="dream-team">Show Dream Team!</button>
 
     <div id="players"></div>
 
@@ -24,6 +25,7 @@
         <h2 class="player-name">{{"First Name"}} {{"Last Name"}}</h2>
         <p class="player-shirt">{{"Jersey"}}</p>
         <p class="player-pos">{{"Position"}}</p>
+        <button id="new-dream-team">Add To Dream Team!</button>
         </div>
         {{/each}}
     </script>
@@ -31,8 +33,6 @@
 
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
-    <!-- <script src="render.js"></script>
-    <script src="playerData.js"></script> -->
     <script src="main.js"></script>
 </body>
 
