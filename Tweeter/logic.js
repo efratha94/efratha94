@@ -1,4 +1,4 @@
-const Tweeter = function() {
+const Tweeter = function () {
     const posts = [
         {
             text: "First post",
@@ -19,54 +19,54 @@ const Tweeter = function() {
             ]
         }
     ];
-    
+
     let postIdCounter = posts.length;
-       
-    const addPosts = function(){
-      postIdCounter += 1
-      posts.push({text: $("#input").val(), id:"p"+postIdCounter, comments: []})
+
+    const addPosts = function () {
+        postIdCounter += 1
+        posts.push({ text: $("#input").val(), id: "p" + postIdCounter, comments: [] })
     }
 
-    const addComment = function (postId, text){
-        for(let post in posts){
-            if (posts[post].id == postId){
-                if (posts[post].comments.length > 0){
-                let commentSliced = posts[post].comments.slice(-1)[0] 
-                let commentIdSliced = commentSliced.id.slice(1)
-                commentIdSliced++
-                posts[post]["comments"].push({id: "c"+commentIdSliced, text})
+    const addComment = function (postId, text) {
+        for (let post in posts) {
+            if (posts[post].id == postId) {
+                if (posts[post].comments.length > 0) {
+                    let commentSliced = posts[post].comments.slice(-1)[0]
+                    let commentIdSliced = commentSliced.id.slice(1)
+                    commentIdSliced++
+                    posts[post]["comments"].push({ id: "c" + commentIdSliced, text })
                 } else {
                     let previousPost = posts.slice(-2)[0]
                     let lastCommentinPreviosPost = previousPost.comments.slice(-1)[0]
                     let lastCommentinPreviosPostId = lastCommentinPreviosPost.id.slice(1)
                     lastCommentinPreviosPostId++
-                    posts[post]["comments"].push({id: "c"+lastCommentinPreviosPostId, text})
+                    posts[post]["comments"].push({ id: "c" + lastCommentinPreviosPostId, text })
                 }
-                
+
             }
         }
     }
 
-    const getPosts = function(){
+    const getPosts = function () {
         return posts
     }
 
     const removePost = function (postId) {
-        for (let post in posts){
-        if (posts[post].id == postId){
-            posts.splice(post, 1)
-            return posts[post]
+        for (let post in posts) {
+            if (posts[post].id == postId) {
+                posts.splice(post, 1)
+                return posts[post]
+            }
         }
     }
-}
 
-    const removeComment = function(postId, commentId){
-        for (let post in posts){
-            if (posts[post].id === postId){
-                for(comment in posts[post].comments){
-                        if(posts[post].comments[comment].id === commentId){
-                            posts[post].comments.splice([comment], 1)
-                            
+    const removeComment = function (postId, commentId) {
+        for (let post in posts) {
+            if (posts[post].id === postId) {
+                for (comment in posts[post].comments) {
+                    if (posts[post].comments[comment].id === commentId) {
+                        posts[post].comments.splice([comment], 1)
+
                     }
                 }
             }
@@ -82,4 +82,4 @@ const Tweeter = function() {
     }
 }
 
-const tweeter = Tweeter();
+

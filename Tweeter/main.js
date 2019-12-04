@@ -1,4 +1,5 @@
 const renderer = Renderer()
+const tweeter = Tweeter();
 renderer.renderPosts(tweeter.getPosts())
 
 $("#post").on("click", function(){
