@@ -22,32 +22,41 @@ router.get("/teams/:teamName", function (req, res) {
             let nbaFirstInfoParsed = JSON.parse(nbaFirstInfo)
             let myTeams = nbaFirstInfoParsed.league.standard
             let teamOfInterest = myTeams.filter(i => i.teamId === teamCorrectId && i.isActive === true)
-            let teamOfReallyInterest = playerInfo.push(teamOfInterest.map(r => { return { "First Name": r.firstName, "Last Name": r.lastName, "Jersey": r.jersey, "Position": r.pos }}))
-            res.send(playerInfo)  
-        } 
+            let teamOfReallyInterest = playerInfo.push(teamOfInterest.map(r => { return { "First Name": r.firstName, "Last Name": r.lastName, "Jersey": r.jersey, "Position": r.pos } }))
+            res.send(playerInfo)
+        }
     })
 
 })
 
 /// EJN part 2
-router.put("/team", function(req, res){
+router.put("/team", function (req, res) {
     let newTeam = req.body
     let newTeamName = Object.keys(newTeam)
     let newTeamID = Object.values(newTeam)
 
-    for (let i = 0; i<newTeamName.length; i++){
-    teamToIDs[newTeamName[i]] = newTeamID[i]
+    for (let i = 0; i < newTeamName.length; i++) {
+        teamToIDs[newTeamName[i]] = newTeamID[i]
     }
 })
 
 let dreamTeam = []
-router.get("/dreamTeam", function(req, res){
+router.get("/dreamTeam", function (req, res) {
     res.send(dreamTeam)
 })
 
-router.post("/roster", function(req, res){
-   dreamTeam.push(req.body) 
-   res.end()
+router.post("/roster", function (req, res) {
+    let newPlayerName = `${req.body["First Name"]} ${req.body["Last Name"]}`
+    
+    for (let player of dreamTeam){
+        let dreamTeamPlayerName = `${player["First Name"]} ${player["Last Name"]}`
+        if (dreamTeamPlayerName === newPlayerName){
+            console.log("Can't add the same player twice! PLease choose another player.")
+            return          
+        }
+    }    
+    dreamTeam.push(req.body)
+    res.end()
 })
 
 
