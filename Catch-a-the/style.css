@@ -1,0 +1,41 @@
+#total-container{
+    display: grid;
+    grid-template-areas: 
+    "h h h"
+    "c c c"
+    "c c c"
+    "lp lp lp";
+    width: 650px;
+    height: 500px;
+}
+
+#container{
+    background-color: #81C784;
+    border: 10px solid #4CAF50;
+    display: grid;
+    grid-area: c;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+    "f1 f2 f3 f4 f5 f6"
+    "f7 f8 f9 f10 f11 f12"
+    "f13 f14 f15 f16 f17 f18"
+    "f19 f20 f21 f22 f23 f24"
+    "f25 f26 f27 f28 f29 f30"
+}
+
+.fa-frog{
+    color: #1B5E20;
+}
+
+#lower-panel{
+    display: grid;
+    grid-area: lp;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    background-color: #FFC107;
+    border: 8px solid #FFA000;
+    
+}
+
