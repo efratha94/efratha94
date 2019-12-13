@@ -31,7 +31,7 @@ router.get("/cities", async function(req, res){
 //connecting to DB - saving a new city
 router.post("/city", function(req, res){
     const newCity = new City(req.body)
-    newCity.save()
+    // newCity.save()
     res.send(newCity)
 })
 
