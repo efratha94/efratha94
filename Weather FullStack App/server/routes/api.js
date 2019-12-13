@@ -5,6 +5,7 @@ const request = require("request")
 const mongoose = require("mongoose")
 
 //requiring all the models here!
+const City = require("../model/city")
 
 const json = {
     data: {}
@@ -12,8 +13,8 @@ const json = {
 
 //connecting to external API
 router.get("/city/:cityName", function(req, res){
-    const cityName = req.params.city
-    request.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${weatherAPIKey}`, function(error, response){
+    const cityName = req.params.cityName
+    request.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${weatherAPIKey}&units=metric`, function(error, response){
     res.send(JSON.parse(response.body))
     })
 })
@@ -35,10 +36,13 @@ router.post("/city", function(req, res){
 })
 
 //connecting to DB - deleting a city
+// check why not deleting!
 router.delete("/city/:cityName", async function(req, res){
-    const cityName = req.params.city
-    await City.findOneAndDelete({name: cityName})
+    const cityName = req.params.cityName
+    console.log(cityName)
+    let success = await City.deleteOne({name: cityName})
     res.end()
+        
 })
 
 module.exports = router

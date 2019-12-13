@@ -7,7 +7,7 @@ const request = require("request")
 const path = require("path")
 const port = 3006
 
-mongoose.connect("mongodb://localhost/spaceDB", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb://localhost/weatherDB", { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: false}))
 app.use("/", api)
