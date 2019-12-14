@@ -41,8 +41,7 @@ class TempManager {
             method: "DELETE",
             dataType: "JSON",
             success: function(request, response){
-                console.log(response)
-                console.log("City Deleted")
+                console.log(response + request)
             }
         })
     }
