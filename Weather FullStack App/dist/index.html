@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,13 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-<body>
-    
-    <div id="container"></div>
+
+<body >
+    <div id="container">
+        <input type="text" placeholder="Please enter a city" id="city-search">
+        <button class="search">Search</button>
+        <div id="cities-container"></div>
+    </div>
 
     <script id="new-city-template" type="text/x-handlebars-template">
         {{#each allCityData}}
@@ -18,6 +23,7 @@
             <h2 id="city-temperature">{{temperature}} &#8451;</h2>
             <h2 id="weather-conditions">{{condition}}</h2>
             <img src={{conditionPic}} id="weather-conditions-pic" />
+            <h4 id="humidity">Humidity: {{humidity}}%</h4>
             <h4 id="sunrise">Sunrise: {{sunrise}}</h4>
             <h4 id="sunset">Sunset: {{sunset}}</h4>
         </div>
@@ -33,4 +39,5 @@
     <script src="Renderer.js"></script>
     <script src="Controller.js"></script>
 </body>
+
 </html>
