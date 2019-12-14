@@ -38,7 +38,7 @@ $("#container").on("click keypress", ".search", function () {
 
 
 $("#container").on("click", ".save", async function(){
-    let saveThisCity = $(this).siblings("h1").text()
+    let saveThisCity = $(this).closest("div").find("h1").text()
     let savePlease = await tempManager.saveCity(saveThisCity)
     $("#cities-container").empty()
     renderer.render(tempManager.cityData)
@@ -46,7 +46,7 @@ $("#container").on("click", ".save", async function(){
 
 
 $("#container").on("click", ".remove", async function(){
-    let removeThisCity = $(this).siblings("h1").text()
+    let removeThisCity = $(this).closest("div").find("h1").text()
     let removePlease = await tempManager.removeCity(removeThisCity)
     $("#cities-container").empty()
     renderer.render(tempManager.cityData)

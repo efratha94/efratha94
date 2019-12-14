@@ -8,22 +8,25 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="https://kit.fontawesome.com/068a06a698.js" crossorigin="anonymous" rel="stylesheet"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
 <body >
     <div id="container">
+        <div id="serach-container">
         <input type="text" placeholder="Please enter a city" id="city-search">
-        <button class="search">Search</button>
+        <button class="search"><i class="fas fa-search"></i></button></div>
+
         <div id="cities-container"></div>
     </div>
 
     <script id="new-city-template" type="text/x-handlebars-template">
         {{#each allCityData}}
         <div id="new-city">
-            <p class="save">Save</p>
-            <p class="remove">Remove</p>
+            <button class="add"><i class="fas fa-plus-circle fa-2x save"></i></button>
+            <!-- <button class="subtract"><i class="fas fa-minus-circle fa-2x remove"></i></button> -->
             <h1 id="city-name">{{name}}</h1>
-            <h2 id="city-temperature">{{temperature}} &#8451;</h2>
+            <h2 id="city-temperature">{{temperature}} °C</h2>
             <h2 id="weather-conditions">{{condition}}</h2>
             <img src={{conditionPic}} id="weather-conditions-pic" />
             <h4 id="humidity">Humidity: {{humidity}}%</h4>
