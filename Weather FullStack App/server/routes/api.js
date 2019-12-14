@@ -3,6 +3,7 @@ const router = express()
 const weatherAPIKey = "f2112d158fda29132b3be27bd3c4229c"
 const request = require("request")
 const mongoose = require("mongoose")
+const moment = require("moment")
 
 //requiring all the models here!
 const City = require("../model/city")
@@ -31,18 +32,28 @@ router.get("/cities", async function(req, res){
 //connecting to DB - saving a new city
 router.post("/city", function(req, res){
     const newCity = new City(req.body)
-    // newCity.save()
+    City.findOne({name: newCity.name}, function(error, success){
+        if (success){
+            return
+        } else {
+            newCity.save()
+        }
+    })
     res.send(newCity)
 })
 
 //connecting to DB - deleting a city
-// check why not deleting!
 router.delete("/city/:cityName", async function(req, res){
     const cityName = req.params.cityName
-    console.log(cityName)
     let success = await City.deleteOne({name: cityName})
     res.end()
         
 })
+
+router.delete("/deleteAll", async function(req, res){
+    await City.deleteMany({})
+    res.end()
+})
+
 
 module.exports = router

@@ -8,8 +8,25 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-    <h2>grrr</h2>
+    
+    <div id="container"></div>
 
+    <script id="new-city-template" type="text/x-handlebars-template">
+        {{#each allCityData}}
+        <div id="new-city">
+            <h1 id="city-name">{{name}}</h1>
+            <h2 id="city-temperature">{{temperature}} &#8451;</h2>
+            <h2 id="weather-conditions">{{condition}}</h2>
+            <img src={{conditionPic}} id="weather-conditions-pic" />
+            <h4 id="sunrise">Sunrise: {{sunrise}}</h4>
+            <h4 id="sunset">Sunset: {{sunset}}</h4>
+        </div>
+        {{/each}}
+    </script>
+
+
+
+    <script src="/moment/moment.js"></script>
     <script src="/jquery/dist/jquery.js"></script>
     <script src="/handlebars/dist/handlebars.js"></script>
     <script src="TempManager.js"></script>
