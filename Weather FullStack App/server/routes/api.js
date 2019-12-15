@@ -36,10 +36,13 @@ router.post("/city", function(req, res){
         if (success){
             return
         } else {
+            newCity.isSaved = true
             newCity.save()
+            
         }
+        res.send(newCity)
     })
-    res.send(newCity)
+    
 })
 
 //connecting to DB - deleting a city

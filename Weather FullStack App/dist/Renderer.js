@@ -8,7 +8,6 @@ class Renderer{
     }
     async render(allCityData){
         await this._renderData(allCityData)
-        
     }
 }
 

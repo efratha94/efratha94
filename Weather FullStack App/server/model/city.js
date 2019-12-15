@@ -9,7 +9,8 @@ const citySchema = new Schema({
     conditionPic: String,
     humidity: Number,
     sunrise: String,
-    sunset: String
+    sunset: String,
+    isSaved: Boolean
 })
 
 

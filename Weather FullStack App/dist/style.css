@@ -75,14 +75,21 @@
     color: #2E7D32;
     background-color: hsla(207, 90%, 54%, 0);
     border: 0px;
-
+    content: "\f055";
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-weight: 900;
 }
-/* .subtract{
+
+.subtract{
     grid-area: bu;
     color: #D84315;
     background-color: hsla(207, 90%, 54%, 0);
     border: 0px;
-} */
+}
+
 #city-name{
     grid-area: city
 }

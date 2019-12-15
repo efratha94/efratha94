@@ -22,7 +22,8 @@ class TempManager {
                 conditionPic: `http://openweathermap.org/img/wn/${result.weather[0].icon}@2x.png`,
                 humidity: result.main.humidity,
                 sunrise: moment.unix(result.sys.sunrise).format("LT"),
-                sunset: moment.unix(result.sys.sunset).format("LT")
+                sunset: moment.unix(result.sys.sunset).format("LT"),
+                isSaved: false
             }
             this.cityData.push(resultCity)
             return resultCity
@@ -34,16 +35,21 @@ class TempManager {
     async saveCity(cityName) {
         const cityToLookUp = this.cityData.find(c => c.name == cityName)
         let bla = await $.post(`/city`, cityToLookUp )
+        this.cityData.find(c => c.name == cityName).isSaved = true
     }
    async removeCity(cityName){
         await $.ajax({
             url: `/city/${cityName}`,
             method: "DELETE",
-            dataType: "JSON",
             success: function(request, response){
+                
                 console.log(response + request)
+            },
+            error: function(xhr, text, error){
+                console.log(error + text)
             }
         })
+        this.cityData.find(c => c.name == cityName).isSaved = false
     }
 
 }
